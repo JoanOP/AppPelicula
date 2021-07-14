@@ -8,13 +8,13 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  url:string="https://whispering-taiga-10837.herokuapp.com/api/movies/";
-
+  url="https://whispering-taiga-10837.herokuapp.com/api/movies";
+ 
  registrar(usuario: any, email: any, password: any) {
    let datos = {
      user: usuario,
      email:email,
-     password: password
+     password: password,
    }
    return new Promise((resolve, reject) => {
      this.http.post(this.url,datos).subscribe(data => {
@@ -31,10 +31,10 @@ export class UsuarioService {
  loguear(email: any, password: any) {
    let datos = {
      email:email,
-     password: password
+     password: password,
    }
    return new Promise((resolve, reject) => {
-     this.http.post(this.url+"login",datos).subscribe(data => {
+     this.http.post(this.url+"/login",datos).subscribe(data => {
        return resolve(data);
      }, error => {
        return reject(error);
@@ -47,11 +47,11 @@ export class UsuarioService {
    let datos={
      idpelicula:idpelicula,
      comentario:comentario,
-     iduser:iduser
+     iduser:iduser,
    }
 
    return new Promise((resolve, reject) => {
-    this.http.post(this.url+"comentario",datos).subscribe(data => {
+    this.http.post(this.url+"/comentario",datos).subscribe(data => {
       return resolve(data);
     }, error => {
       return reject(error);
@@ -64,7 +64,7 @@ export class UsuarioService {
  getComentarios(idpelicula:any){
 
   return new Promise((resolve, reject) => {
-    this.http.get(this.url+"mostrar/comentario/"+idpelicula).subscribe(data => {
+    this.http.get(this.url+"/mostrar/comentario/"+idpelicula).subscribe(data => {
       return resolve(data);
     }, error => {
       return reject(error);
