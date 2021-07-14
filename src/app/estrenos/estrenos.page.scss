@@ -1,0 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+
+ion-content,ion-toolbar{
+  font-family: 'Abel', sans-serif;
+  --color:#fff ;
+  --background:#010101;
+}
+h1{
+ 
+ font-size:24px;
+}
+
+.lupa{
+  margin-right:10px;
+  --ionicon-stroke-width : 50px ;
+  font-size:22px;
+  // color:#fff;
+}
+
+ion-slides {
+ height:100%;
+//  font-family: 'Abel', sans-serif;
+}
+
+.imagen{
+  padding:0px 10px;
+}
+
+ img{ 
+  border-radius:8px;
+}
+
+
+p{
+  padding:0 10px;
+  text-align:justify;
+  font-size:20px;
+}
+
+.descripcion{
+   display: -webkit-box;
+  -webkit-line-clamp:5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height:150px;
+  margin:0 5px;
+  margin-bottom:16px;
+ 
+}
+
+
+.imagen_fecha{
+  display:flex;
+  margin:auto;
+  align-content:center;
+  justify-content:space-between;
+}
+
+
+.imagen_fecha div{
+ border-bottom-style: groove;
+  border-bottom-width: 4px;
+}
+
+.trailer{
+  color:red;
+  font-size:15px;
+}
+
+
+.content_trailer{
+ display:flex;
+ align-content:flex-start;
+ height:30px;
+ position: relative;
+}
+
+
+

@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>PELICULAS</ion-title>
+    <ion-buttons slot="end">
+      <a routerLink="/principal">
+        <ion-icon name="search-outline" class="lupa"></ion-icon>
+      </a>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row *ngFor="let item of ArrayPrueba">
+
+    <ion-col size="6" *ngFor="let i of item.results" (click)="getID(i.id)">
+
+      <img class="poster_path" *ngIf="i.poster_path else error"
+        src="https://image.tmdb.org/t/p/original/{{i.poster_path}} ">
+
+      <ng-template #error>
+        <img class="poster_path" *ngIf="i.poster_path == null && i.backdrop_path!=null"
+          src="https://image.tmdb.org/t/p/original/{{i.backdrop_path}}">
+        <img class="poster_path" *ngIf="i.poster_path == null && i.backdrop_path== null" src="assets/erroImg.png">
+      </ng-template>
+      {{i.title}}
+    </ion-col>
+
+  </ion-row>
+
+
+</ion-content>
+
+<ion-footer>
+  <app-menu></app-menu>
+</ion-footer>

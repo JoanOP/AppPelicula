@@ -1,27 +1,55 @@
-#container {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content,ion-toolbar{
+	--background: #010101e5;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-input{
+	font-size: 20px;
+		font-family: 'Abel', sans-serif;
+	color: #fff;
+	border-bottom:1px rgb(181, 171, 171) solid;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-title{
+	color:#fff;
+	text-align: center;
+	margin-top: 15%;
+	font-size: 27px;
+	font-family: 'Abel', sans-serif;
+}
+.img{
+	width: 180px;
+	margin: 20px auto 0 auto;
+	background: none;
+	border:none;
+	box-shadow: none;
+	
+}
+.img img{
+	object-fit: cover;
+	width: 100%;
+	background: none;
+}
+.box{
+	width: 100%;	
+	margin: auto;
+	text-align: start;
+	--font-family: 'Abel', sans-serif;
 }
 
-#container a {
-  text-decoration: none;
+ion-row{
+	margin-top: 20px;
+}
+ion-col{
+	margin:0 auto 8px auto;
+	
+}
+
+.button{
+	margin-top: 20px;
+}
+.button ion-button{
+	--background: rgb(243, 41, 41);
+	
 }

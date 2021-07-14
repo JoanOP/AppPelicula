@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar" (Keyup.enter)=" buscar($event)"> </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <span *ngFor="let item of ArrayBusqueda">
+
+    <ion-item *ngIf=" item.media_type=='movie'">
+      <ion-thumbnail slot="start" *ngIf="item.media_type!='tv'">
+        <img (click)="getID(item.id)" class="poster_path" *ngIf="  item.poster_path "
+          src="https://image.tmdb.org/t/p/original/{{item.poster_path}} ">
+        <img (click)="getID(item.id)" class="poster_path" *ngIf="  item.poster_path == null "
+          src="assets/imageFound.jpg">
+      </ion-thumbnail>
+      <ion-label (click)="getID(item.id)" class="ion-text-wrap">
+        {{item.title}}
+      </ion-label>
+
+
+
+    </ion-item>
+
+    <span *ngIf="item.media_type=='person'">
+      <span *ngFor="let i of item.known_for">
+        <ion-item *ngIf="item.media_type=='person' ">
+          <ion-thumbnail slot="start" *ngIf="item.media_type!='tv'">
+            <img (click)="getID(i.id)" class="poster_path" *ngIf=" i.media_type!='tv'  && i.poster_path else error"
+              src="https://image.tmdb.org/t/p/original/{{i.poster_path}} ">
+            <img (click)="getID(i.id)" class="poster_path"
+              *ngIf=" i.media_type!='tv'  && i.poster_path == null && item.backdrop_path!=null  "
+              src="https://image.tmdb.org/t/p/original/{{item.backdrop_path}}">
+            <img (click)="getID(i.id)" class="poster_path"
+              *ngIf="i.media_type!='tv' && i.poster_path == null && item.backdrop_path== null"
+              src="assets/imageFound.jpg">
+          </ion-thumbnail>
+          <ion-label (click)="getID(i.id)" class="ion-text-wrap" >
+          
+              {{i.title}}
+           
+          </ion-label>
+
+
+
+        </ion-item>
+      </span>
+    </span>
+
+  </span>
+
+
+
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>

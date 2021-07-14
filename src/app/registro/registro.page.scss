@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+ion-content,ion-toolbar{
+	--background: #010101e5;
+
+}
+ion-toolbar{
+
+	--color:#fff;
+}
+
+ion-title{
+	font-size: 30px;
+	color:#fff;
+	font-family: 'Abel', sans-serif;
+	text-align: center;
+	margin-top: 15%;
+}
+ion-input{
+	font-size: 20px;
+	color: #fff;
+	border-bottom:1px rgb(170, 162, 162) solid;
+	--padding-start:5px;
+	font-family: 'Abel', sans-serif;
+}
+
+.img{
+	width: 180px;
+	margin: 15% auto 0 auto;
+	
+}
+.img img{
+	object-fit: cover;
+	width: 100%;
+}
+.box{
+	width: 100%;	
+	margin: auto;
+	text-align: start;
+	--font-family: 'Abel', sans-serif;
+
+}
+
+ion-row{
+	margin-top: 20px;
+}
+ion-col{
+	margin:0 auto 8px auto;
+	
+}
+
+.button{
+	margin-top: 11px;
+}
+.button ion-button{
+	--background: rgb(243, 41, 41);
+	
+}
+
+.error{
+	font-family: 'Abel', sans-serif;
+	color: #ff0000f3;
+	font-size: 18px;
+}

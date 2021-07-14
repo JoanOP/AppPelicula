@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+ion-content,
+ion-toolbar,
+ion-item {
+
+  --color: #fff;
+  --background: #010101;
+
+}
+
+
+
+// .col_data{
+//     // padding: 3px;
+//     // text-align:unset;
+//     font-size: 14px;
+//     border: 1px green solid;
+//     overflow: hidden;
+//     height: 34px;
+// }
+
+
+.poster_path {
+  border-radius: 8px;
+  height: 160.50px;
+  width: 127px;
+  // object-fit: cover;
+  //    border: 1px red solid;
+}
+
+// ion-item{
+// border-bottom:2.5px #ccc solid; 
+// padding: 5px;
+// font-family: 'Abel', sans-serif;
+
+// }
+

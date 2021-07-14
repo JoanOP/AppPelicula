@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ArrayDetalle.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card expand="full">
+
+    <div class="img">
+      <img *ngIf="ArrayDetalle.backdrop_path else error"
+        src="https://image.tmdb.org/t/p/original/{{ArrayDetalle.backdrop_path}}">
+      <ng-template #error>
+        <img *ngIf="ArrayDetalle.backdrop_path == null && ArrayDetalle.poster_path!=null"
+          src="https://image.tmdb.org/t/p/original/{{ArrayDetalle.poster_path}}">
+        <img *ngIf="ArrayDetalle.poster_path == null && ArrayDetalle.backdrop_path== null" src="assets/erroImg.png">
+      </ng-template>
+    </div>
+    <ion-card-header>
+
+      <div class="imagen_fecha">
+        <div> {{ArrayDetalle.release_date}}</div>
+        <div>
+          <ion-icon name="star-outline"></ion-icon>{{ArrayDetalle.vote_average}}/10
+        </div>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h2 class="titulo" s>Géneros</h2>
+      <div class="flex flex_genero_lenguaje">
+        <div *ngFor="let item of ArrayDetalle.genres">
+          <p>
+            {{item.name}}
+          </p>
+        </div>
+      </div>
+
+      <h2 class="titulo">Lenguajes</h2>
+      <div class="flex flex_genero_lenguaje">
+        <div *ngFor="let item of ArrayDetalle.spoken_languages">
+          <p>{{item.english_name}}</p>
+        </div>
+      </div>
+      <h2 class="titulo">Trama</h2>
+      <p class="trama" *ngIf="ArrayDetalle.overview  else vacio">
+        {{ArrayDetalle.overview}}</p>
+      <ng-template #vacio>
+        <div class="vacio">
+          <p>INFORMACION DESACTUALIZADA</p>
+        </div>
+      </ng-template>
+
+      <div class="ingresos" >
+        <h2>
+          Ingresos: 
+        </h2>
+       <p >{{ ArrayDetalle.revenue | currency: 'USD' }}</p>
+      </div>
+      <div class="ingresos">
+        <h2> Presupuesto:</h2>
+       <p >{{ ArrayDetalle.budget | currency: 'USD' }}</p>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card class="comentarios">
+    <h1>Comentarios</h1>
+    <div class="flex flex_user">
+      <p> <img src="assets/avatar.png">{{usuario}}</p>
+      <div (click)="vcoment()">
+        <ion-icon name="chatbubble-ellipses-outline" style="font-size: 22px;"></ion-icon>
+      </div>
+    </div>
+    <span *ngIf="estado">
+      <form [formGroup]="frmComentar" style="margin-bottom: 10px;">
+        <div class="flex">
+
+          <ion-textarea #comentar formControlName="comentario" placeholder="Agregue un comentario público">
+          </ion-textarea>
+          <ion-button [disabled]="frmComentar.invalid" (click)="Comentario(comentar)" fill="clear" size="large"
+            color="dark">
+            <ion-icon name="send-sharp"> </ion-icon>
+          </ion-button>
+        </div>
+      </form>
+      <ion-item *ngFor="let item of ArrayComentarios">
+        <ion-avatar slot="start" style="border: none;">
+          <img src="assets/avatar.png">
+        </ion-avatar>
+        <ion-label style="border: none;">
+          <div class="flex flex_color">
+            <p class="comentar_usuario">{{item.usuario}}</p>
+            <p class="comentar_fecha">{{item.fecha| date:'dd/MM/yyyy , h:mm a'}}</p>
+
+          </div>
+
+          <p class="ion-text-wrap"> {{item.comentario}}</p>
+        </ion-label>
+      </ion-item>
+    </span>
+
+  </ion-card>
+
+
+
+</ion-content>

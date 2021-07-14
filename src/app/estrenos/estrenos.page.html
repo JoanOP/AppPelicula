@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>ESTRENOS</ion-title>
+
+    <ion-buttons slot="end">
+      <a routerLink="/principal">
+        <ion-icon name="search-outline" class="lupa"></ion-icon>
+      </a>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let item of ArrayEstrenos">
+      <div class="card">
+        <h1 style="padding-bottom:10px ;">{{item.title}}</h1>
+        <div class="imagen">
+          <img src="https://image.tmdb.org/t/p/original/{{item.backdrop_path}}">
+          <div class="imagen_fecha">
+            <div> {{item.release_date}}</div>
+            <div><ion-icon name="star-outline"></ion-icon>{{item.vote_average}}/10</div>
+          </div>
+
+        </div>
+
+        <div class="content_trailer">
+          <ion-chip outline color="dark" class="trailer" (click)="showTrailer(item.id)">
+            <ion-icon name="videocam"></ion-icon>
+            <ion-label>Ver Trailer</ion-label>
+          </ion-chip>
+        </div>
+
+        <div class="descripcion">
+          <P>{{item.overview}}</P>
+        </div>
+
+        <span style="color:#777777; " (click)="getID(item.id)">Leer más</span>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer>
+  <app-menu></app-menu>
+</ion-footer>

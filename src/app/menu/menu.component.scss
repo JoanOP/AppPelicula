@@ -1,0 +1,24 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
+
+
+
+
+
+
+
+ion-toolbar,ion-tabs,ion-tab-bar,ion-tab-button{
+	background:#121212;
+	border: none;
+}
+
+ion-tab-button,ion-label{
+	color: #fff;
+}
+
+.my-custom-class {
+	--background: #222;
+	--spinner-color: #fff;
+  
+	color: #fff;
+  }

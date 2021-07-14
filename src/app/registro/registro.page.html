@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title >Registrarse</ion-title> -->
+    <ion-buttons  slot="start">
+      <ion-back-button  defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+        <ion-title >Registrarse</ion-title>
+
+
+   
+
+
+  <form [formGroup]="frmRegistro" class="box">
+    <ion-row>
+      <ion-col size="9">
+
+        <ion-input #user formControlName="usuario" placeholder="Nombre">
+          <ion-icon name="person-outline"></ion-icon>
+        </ion-input>
+        <span class="error" *ngIf="(this.frmRegistro.get('usuario').hasError('required')) && (this.frmRegistro.get('usuario').touched) " >*Completar campo</span>
+        <span class="error" *ngIf="(this.frmRegistro.get('usuario').hasError('minlength')) && (this.frmRegistro.get('usuario').touched) " >*Minimo 5 caracteres</span>
+        <span class="error" *ngIf="(this.frmRegistro.get('usuario').hasError('maxlength')) && (this.frmRegistro.get('usuario').touched) " >*Máximo 15 caracteres</span>
+        
+      </ion-col>
+      <ion-col size="9">
+        <ion-input  #email formControlName="email" placeholder="Email" >
+          <ion-icon name="mail-outline"></ion-icon>
+        </ion-input>
+        <span class="error" *ngIf="(this.frmRegistro.get('email').hasError('required')) && (this.frmRegistro.get('email').touched)">*Completar campo</span>
+        <span class="error" *ngIf="(this.frmRegistro.get('email').hasError('email')) && (this.frmRegistro.get('email').touched) ">*Email no válido</span>
+      </ion-col>
+      
+      <ion-col size="9">
+        <ion-input  #password formControlName="password" type="password" placeholder="Contraseña">
+          <ion-icon name="lock-closed-outline"></ion-icon>  
+        </ion-input >
+        <span class="error" *ngIf="(this.frmRegistro.get('password').hasError('required')) && (this.frmRegistro.get('password').touched) " >*Completar campo</span>
+        <span class="error" *ngIf="(this.frmRegistro.get('password').hasError('minlength')) && (this.frmRegistro.get('password').touched) ">*Minimo 8 caracteres</span>
+      </ion-col>
+
+      <ion-col size="9" class="button">
+        <ion-button [disabled]="frmRegistro.invalid" expand="block" shape="round" (click)="registro(user,email,password)"> Registrarse </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

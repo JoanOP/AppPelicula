@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+ion-content,
+ion-toolbar {
+    font-family: 'Abel', sans-serif;
+  --color: #fff;
+  --background: #010101;
+}
+
+
+
+h1 {
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+
+
+.lupa {
+  margin-right: 10px;
+  --ionicon-stroke-width: 50px;
+  font-size: 22px;
+  // color:#fff;
+}
+
+.cartelera {
+  width: 282px;
+  box-shadow: none;
+  height: 250px;
+
+  .cartelera img {
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+    transform: scale(1.1, 1.1) rotate(1deg);
+    transition: 600ms all ease-in-out;
+    filter: blur(2px);
+    padding: 3px 0;
+  }
+}
+
+
+ion-card {
+  width: 100px;
+  background: #010101;
+  box-shadow: none;
+  border-radius: 12px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.1, 1.1) rotate(1deg);
+    transition: 600ms all ease-in-out;
+
+
+  }
+}
+
+.swiper-slide-active {
+  transform: scale(1.05, 1.05);
+
+  ion-card {
+    img {
+      transform: scale(1, 1);
+    }
+  }
+
+  .cartelera {
+    img {
+      filter: blur(0);
+
+    }
+  }
+}
+
+.swiper-slide {
+  transition: 400ms all ease-in-out;
+
+
+}

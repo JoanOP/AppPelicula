@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+ion-content,
+ion-toolbar {
+  font-family: 'Abel', sans-serif;
+  --color: #fff;
+  --background: #010101;
+
+}
+ion-content{
+  text-align: center;
+}
+.poster_path {
+  border-radius: 8px;
+  height:180px;
+   width: 100%;
+
+  
+}
+
+
+.lupa{
+    margin-right:10px;
+    --ionicon-stroke-width : 50px ;
+    font-size:22px;
+    // color:#fff;
+  }
+
+ 
