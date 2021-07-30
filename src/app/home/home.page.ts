@@ -22,6 +22,7 @@ export class HomePage {
       this.router.navigate(['cartelera']);
       localStorage.setItem('idusuario',data["Usuario"].id);
       localStorage.setItem('usuario',data["Usuario"].user);
+      
       email.value="";
       password.value="";
     }else{

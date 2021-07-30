@@ -47,6 +47,7 @@ ion-textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .flex_user {
@@ -77,15 +78,20 @@ ion-item {
 }
 
 .flex_genero_lenguaje {
+  display: flex;
   justify-content: left;
   margin-bottom: 5px;
+  flex-wrap: wrap;
+  flex-direction:row;
+ 
 }
 
 .flex_genero_lenguaje div {
   border: 1px #00ff80cd solid;
   padding: 5px;
   border-radius: 5px;
-  margin-right: 10px;
+  margin:5px 10px 2px 0;
+
 }
 
 .imagen_fecha {

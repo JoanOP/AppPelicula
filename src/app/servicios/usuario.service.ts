@@ -71,6 +71,19 @@ export class UsuarioService {
     })
   })
 
+}
+
+ updateUser(data:any){
+  var formdata=new FormData();
+  formdata.append('user',data.user);
+  formdata.append('foto',data.foto);
+  return new Promise((resolve, reject) => {
+    this.http.post(this.url+"/perfil/"+localStorage.getItem('idusuario'),formdata).subscribe(data => {
+      return resolve(data);
+    }, error => {
+      return reject(error);
+    })
+  })
 
 }
 }

@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'lottie',
     loadChildren: () => import('./lottie/lottie.module').then( m => m.LottiePageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
 ];
 
 @NgModule({
